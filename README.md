@@ -3,7 +3,7 @@
 [![View Live Report](https://img.shields.io/badge/View-Live%20Server%20Report-3ecf6b?style=for-the-badge&logo=github)](https://necrodingo.github.io/palworld-server/)
 
 Server Name: Berries & Cream<br>
-Server Password: astroquest
+Server Password: you should see it in discord, or message me
 
 _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
