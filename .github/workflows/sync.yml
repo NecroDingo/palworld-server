@@ -1,0 +1,41 @@
+name: Sync Palworld Report
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # every 5 minutes
+  workflow_dispatch:         # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install ssh2-sftp-client
+
+      - name: Pull report via SFTP
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          REMOTE_REPORT_PATH: ${{ secrets.REMOTE_REPORT_PATH }}
+        run: node scripts/sync.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "report-bot"
+          git config user.email "actions@github.com"
+          git add docs/index.html
+          git diff --staged --quiet && echo "No changes" || git commit -m "Update report"
+          git push
