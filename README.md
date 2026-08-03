@@ -2,7 +2,10 @@ Server Name: Berries & Cream
 
 Server Password: astroquest
 
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 Current Mod List:
+
 🎁 Daily Login Rewards
 Rewards you for logging in regularly with a 30-day streak system — the longer you keep the streak alive, the better the payout gets. - https://www.nexusmods.com/palworld/mods/2164
 
