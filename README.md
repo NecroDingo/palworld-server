@@ -1,4 +1,5 @@
 Server Name: Berries & Cream
+
 Server Password: astroquest
 
 Current Mod List:
